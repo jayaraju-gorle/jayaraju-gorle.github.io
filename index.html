@@ -74,6 +74,43 @@
         .contact a:hover {
             background-color: #f0f0f0;
         }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background-color: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 16px;
+            transition: transform 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .project-card h3 {
+            margin-top: 0;
+            color: #0366d6;
+        }
+        .project-card p {
+            color: #586069;
+            font-size: 0.9em;
+        }
+        .project-link {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        .last-updated {
+            text-align: center;
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -178,6 +215,17 @@
             </div>
         </section>
 
+        <section class="section">
+            <h2>GitHub Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3><a href="https://github.com/jayaraju-gorle/jayaraju-gorle.github.io" class="project-link">Personal Website</a></h3>
+                    <p>My personal portfolio website built with HTML and hosted on GitHub Pages</p>
+                </div>
+                <!-- More project cards can be added here as you create more repositories -->
+            </div>
+        </section>
+
         <section class="section contact">
             <h2>Contact Me</h2>
             <p>
@@ -185,8 +233,13 @@
                 <a href="tel:+916302392274">📱 Phone</a>
                 <a href="https://www.linkedin.com/in/jayaraju-gorle">💼 LinkedIn</a>
                 <a href="https://github.com/jayaraju-gorle">🐱 GitHub</a>
+                <a href="https://www.kaggle.com/gorlej">📊 Kaggle</a>
             </p>
         </section>
+
+        <div class="last-updated">
+            Last updated: 2025-02-12
+        </div>
     </div>
 </body>
 </html>
