@@ -13,80 +13,117 @@
         gtag('config', 'G-KJ3CXMBTDG');
     </script>
     <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
             background-color: #f5f5f5;
             color: #333;
+            font-size: 16px;
         }
+
+        /* Container */
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
+        /* Header */
         header {
             background-color: #2c3e50;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 2rem 1rem;
         }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
         .section {
             background-color: white;
             margin: 20px 0;
-            padding: 30px;
+            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        /* Skills */
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin: 10px 0;
         }
+
         .skill {
             background-color: #3498db;
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9em;
+            margin: 5px;
+            white-space: nowrap;
         }
+
+        /* Experience */
         .experience-item {
             margin-bottom: 25px;
             border-left: 3px solid #3498db;
             padding-left: 20px;
         }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
         .experience-item h3 {
             color: #2c3e50;
             margin-bottom: 5px;
+            font-size: 1.3rem;
         }
+
         .experience-date {
             color: #666;
             font-size: 0.9em;
             margin-bottom: 10px;
         }
-        .education-item {
-            margin-bottom: 20px;
+
+        .experience-item ul {
+            padding-left: 20px;
         }
-        .contact {
-            text-align: center;
+
+        .experience-item li {
+            margin-bottom: 5px;
         }
-        .contact a {
-            color: #3498db;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .contact a:hover {
-            background-color: #f0f0f0;
-        }
+
+        /* Projects */
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
+
         .project-card {
             background-color: white;
             border: 1px solid #e1e4e8;
@@ -94,34 +131,134 @@
             padding: 16px;
             transition: transform 0.2s;
         }
+
         .project-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         .project-card h3 {
             margin-top: 0;
             color: #0366d6;
         }
-        .project-card p {
-            color: #586069;
-            font-size: 0.9em;
-        }
+
         .project-link {
             color: #0366d6;
             text-decoration: none;
         }
+
         .project-link:hover {
             text-decoration: underline;
         }
-        .last-updated {
+
+        /* Contact */
+        .contact {
             text-align: center;
-            font-size: 0.8em;
-            color: #666;
-            margin-top: 20px;
+        }
+
+        .contact a {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            margin: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: #f8f9fa;
+        }
+
+        .contact a:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 20px;
+                margin: 15px 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .experience-item {
+                padding-left: 15px;
+            }
+
+            .experience-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .skills {
+                gap: 8px;
+            }
+
+            .skill {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+
+            .contact a {
+                margin: 5px;
+                padding: 8px 12px;
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 15px;
+                margin: 10px 0;
+            }
+
+            .experience-item {
+                padding-left: 10px;
+            }
+
+            .contact a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML content remains the same -->
     <header>
         <div class="container">
             <h1>Jayaraju Gorle</h1>
@@ -234,7 +371,6 @@
                     <h3><a href="https://jayaraju-gorle.github.io/simple-calculator/" class="project-link">Simple Calculator</a></h3>
                     <p>QuickCalc: Simple Online Calculator</p>
                 </div>
-                <!-- More project cards can be added here as you create more repositories -->
             </div>
         </section>
 
@@ -248,7 +384,6 @@
                 <a href="https://www.kaggle.com/gorlej">📊 Kaggle</a>
             </p>
         </section>
-
     </div>
 </body>
 </html>
