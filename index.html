@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jayaraju Gorle - Product Manager</title>
     <!-- Google Analytics remains the same -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ3CXMBTDG"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ3CXMBDTG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){dataLayer.push(arguments);} 
         gtag('js', new Date());
-        gtag('config', 'G-KJ3CXMBTDG');
+        gtag('config', 'G-KJ3CXMBDTG');
     </script>
     <style>
         :root {
@@ -48,9 +48,10 @@
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 3rem 1rem;
+            padding: 3rem 0;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         header .container {
@@ -68,225 +69,67 @@
             opacity: 0.9;
         }
 
+        /* Profile picture added */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            margin: 0 auto 0.75rem auto;
+            display: block;
+        }
+
         /* Improved Section Styling */
         .section {
-            background-color: white;
+            background: white;
             margin: 1.5rem 0;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        /* Enhanced Experience Items */
-        .experience-item {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--secondary-color);
-            position: relative;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 13px;
-            height: 13px;
-            background: var(--secondary-color);
-            border-radius: 50%;
-        }
-
-        .experience-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .experience-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-            display: inline-block;
-            background: var(--light-gray);
-            padding: 0.2rem 0.8rem;
-            border-radius: 15px;
-        }
-
-        /* Improved Skills Section */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 1rem 0;
-        }
-
-        .skill {
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            background: var(--primary-color);
-        }
-
-        /* Enhanced Projects Section */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: var(--border-radius);
             padding: 1.5rem;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.8rem;
-        }
-
-        .project-link {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .project-link:hover {
-            color: var(--primary-color);
-        }
-
-        /* Improved Contact Section */
-        .contact {
-            text-align: center;
-        }
-
-        .contact a {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-color);
-            text-decoration: none;
-            margin: 0.5rem;
-            padding: 0.8rem 1.2rem;
             border-radius: var(--border-radius);
-            background: white;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
             transition: var(--transition);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .contact a:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+        .section:hover { transform: translateY(-3px); }
 
-        /* Responsive Design */
+        .section h2 { margin-bottom: 0.75rem; }
+
+        .experience-item { margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--light-gray); }
+
+        .skills { display: flex; flex-wrap: wrap; gap: 12px; margin: 1rem 0; }
+
+        .skill { background: var(--secondary-color); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; }
+
+        /* Projects */
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+
+        .project-card { background: white; border-radius: 10px; padding: 1rem; border: 1px solid rgba(0,0,0,0.06); }
+
+        .project-card h3 { color: var(--primary-color); margin-bottom: 0.5rem; }
+
+        .project-link { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+
+        .project-link:hover { color: var(--accent-color); }
+
+        .project-card p { color: #666; }
+
+        .contact a { display: inline-block; margin: 0.25rem 0.5rem 0.25rem 0; padding: 0.4rem 0.7rem; background: white; color: var(--primary-color); border-radius: 6px; text-decoration: none; border: 1px solid rgba(0,0,0,0.05); }
+
+        .contact a:hover { background: var(--secondary-color); color: white; }
+
         @media screen and (max-width: 768px) {
-            body {
-                font-size: 15px;
-            }
-
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 1.5rem;
-            }
-
-            .experience-item {
-                padding-left: 1.2rem;
-            }
-
-            .contact a {
-                padding: 0.6rem 1rem;
-                margin: 0.3rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            header {
-                padding: 2rem 1rem;
-            }
-
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            .section {
-                padding: 1.2rem;
-            }
-
-            .skills {
-                gap: 8px;
-            }
-
-            .skill {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.85rem;
-            }
-
-            .contact a {
-                display: block;
-                margin: 0.8rem 0;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
+            body { font-size: 15px; }
+            .container { width: 95%; padding: 15px; }
+            header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
+            <!-- profile image pulled from GitHub account -->
+            <img class="profile-pic" src="https://github.com/jayaraju-gorle.png" alt="Jayaraju Gorle">
             <h1>Jayaraju Gorle</h1>
             <p>Product Manager @ Apollo 24|7 | IIM Calcutta | IIT KGP</p>
         </div>
@@ -296,65 +139,46 @@
         <section class="section">
             <h2>About Me</h2>
             <p>
-                With over 12 years of industry experience + 2 yrs full time MBA from IIMC, I specialize in building digital products and scalable software systems that solve real-world problems and deliver exceptional value. My career spans diverse industries, including healthcare, affiliate marketing, and travel, where I’ve contributed to creating impactful solutions that drive business growth and improve user experiences.
+                With over 12 years of industry experience + 2 yrs full time MBA from IIMC, I specialize in building digital products and scalable software systems that solve real-world problems and deliver exceptional value. My career spans diverse industries, including healthcare, affiliate marketing, and travel, where I've contributed to impactful product solutions that drive business growth and improve user experiences.
             </p>
 
             <p>
-                I hold an MBA from IIM Calcutta and a B.Tech (Hons) in Electronics &amp; Communications from IIT Kharagpur, which provide a strong foundation for my expertise in product development, system design, and data-driven decision-making.
+                I hold an MBA from IIM Calcutta and a B.Tech (Hons) in Electronics & Communications from IIT Kharagpur, which provide a strong foundation for my expertise in product development, system design, and data-driven decision-making.
             </p>
 
             <p>Some of my key accomplishments include:</p>
             <ul>
-                <li>Developing Travel Buddhi, a B2B SaaS platform for SMEs in the travel industry, from the ground up.</li>
-                <li>Introducing cashback features at CouponDunia, significantly enhancing user engagement and loyalty.</li>
-                <li>Designing AI-driven conversational systems for Future Group India to improve customer interactions.</li>
+                <li>Developing Travel Buddhist, a B2B SaaS platform for SMEs in the travel industry.</li>
                 <li>Building robust QA processes and implementing agile methodologies to streamline product development.</li>
+                <li>Designing AI-driven conversational systems for Future Group India to improve customer interactions.</li>
             </ul>
-
-            <p>
-                My approach combines technical expertise with strategic thinking to deliver innovative products that address customer needs. I am passionate about collaborating with cross-functional teams to build scalable solutions that create meaningful impact.
-            </p>
         </section>
 
         <section class="section">
             <h2>Professional Experience</h2>
-            
             <div class="experience-item">
                 <h3>Senior Product Manager</h3>
                 <div class="experience-date">Apollo 24|7 | April 2021 - Present</div>
-                <p>Leading product initiatives in the healthcare technology space</p>
+                <p>Leading product initiatives in the healthcare technology space.</p>
             </div>
 
             <div class="experience-item">
                 <h3>Head of Product Development</h3>
                 <div class="experience-date">mPhase Technologies | August 2019 - December 2020</div>
                 <ul>
-                    <li>Led product development for Travel Buddhi - A B2B SaaS solution for SMEs in travel industry</li>
+                    <li>Led product development for Travel Buddha - a B2B SaaS solution for SMEs in travel industry</li>
                     <li>Managed a team of 15 developers and 3 SDETs, coordinating with designers</li>
-                    <li>Built QA team and processes from scratch</li>
-                    <li>Implemented agile methodologies with 2-week sprint cycles</li>
-                    <li>Developed voice-enabled chatbot using Dialogflow and Node.js</li>
+                    <li>Built QA processes and implemented agile methodologies</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <h3>Product Manager</h3>
-                <div class="experience-date">Future Group India | March 2018 - July 2019</div>
-                <ul>
-                    <li>Developed conversational AI for small format stores</li>
-                    <li>Implemented flows for Membership FAQs, Registration, and Order Placement</li>
-                    <li>Customized solutions for multiple platforms including Web/Mobile App, Google Assistant, FB Messenger, and WhatsApp</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h3>Product Manager</h3>
-                <div class="experience-date">CouponDunia (Times of India Group) | April 2015 - February 2018</div>
+                <div class="experience-date">CouponDunia | April 2015 - February 2018</div>
                 <ul>
                     <li>Introduced cashback features and customer loyalty schemes</li>
-                    <li>Implemented affiliate conversion tracking for 200+ partner stores</li>
-                    <li>Achieved 33% improvement in daily signups through referral scheme</li>
-                    <li>Developed fraud detection systems and monitoring panels</li>
+                    <li>Implemented affiliate conversion tracking for partner stores</li>
+                    <li>Achieved 33% improvement in daily signups through referral schemes</li>
                 </ul>
             </div>
         </section>
@@ -362,40 +186,16 @@
         <section class="section">
             <h2>Skills</h2>
             <div class="skills">
-                <span class="skill">Product Management</span>
-                <span class="skill">Product Roadmapping</span>
-                <span class="skill">Product Design</span>
+                <span class="skill">Product Strategy</span>
+                <span class="skill">Roadmapping</span>
                 <span class="skill">Data Analysis</span>
-                <span class="skill">B2C</span>
                 <span class="skill">B2B</span>
                 <span class="skill">SaaS</span>
-                <span class="skill">Web Applications</span>
+                <span class="skill">Web App</span>
                 <span class="skill">Chatbots</span>
                 <span class="skill">SEO</span>
-                <span class="skill">Technology Trends</span>
+                <span class="skill">Tech trends</span>
                 <span class="skill">Market Analysis</span>
-                <span class="skill">New Product Rollout</span>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Indian Institute of Management, Calcutta</h3>
-                <p>PGDM (MBA) | 2013 - 2015</p>
-            </div>
-            <div class="education-item">
-                <h3>Indian Institute of Technology, Kharagpur</h3>
-                <p>B.Tech in Electrical, Electronics and Communications Engineering | 2007 - 2011</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Languages</h2>
-            <div class="skills">
-                <span class="skill">English</span>
-                <span class="skill">Hindi</span>
-                <span class="skill">Telugu</span>
             </div>
         </section>
 
@@ -403,13 +203,20 @@
             <h2>GitHub Projects</h2>
             <div class="projects">
                 <div class="project-card">
-                    <h3><a href="https://jayaraju-gorle.github.io/digital-world-clock/" class="project-link" target="_blank" rel="noopener noreferrer">Digital World Clock</a></h3>
-                    <p>Global Time Tracker: Instant World Clock</p>
+                    <h3><a href="https://doctors-availability-checker-968458253320.us-west1.run.app" class="project-link" target="_blank" rel="noopener noreferrer">Doctors Availability Checker</a></h3>
+                    <p>Realtime doctor availability checker — quick appointment availability lookup for clinics and hospitals.</p>
                 </div>
+
                 <div class="project-card">
-                    <h3><a href="https://jayaraju-gorle.github.io/ai-calculator/" class="project-link" target="_blank" rel="noopener noreferrer">Simple Calculator</a></h3>
-                    <p>QuickCalc: Simple Online Calculator</p>
+                    <h3><a href="https://www.datatoolkitforsheets.com/" class="project-link" target="_blank" rel="noopener noreferrer">DataToolkitForSheets</a></h3>
+                    <p>DataToolkitForSheets: a set of tools and add-ons to process and analyze spreadsheet data quickly.</p>
                 </div>
+
+                <div class="project-card">
+                    <h3><a href="https://jayaraju-gorle.github.io/ai-calculator/" class="project-link" target="_blank" rel="noopener noreferrer">Simple AI Powered Calculator</a></h3>
+                    <p>AI-powered calculator with natural language input and advanced functions.</p>
+                </div>
+
             </div>
         </section>
 
@@ -417,10 +224,9 @@
             <h2>Contact Me</h2>
             <p>
                 <a href="mailto:gorlej2015@email.iimcal.ac.in">📧 Email</a>
-                <a href="tel:+917406497408">📱 Phone</a>
-                <a href="https://www.linkedin.com/in/jayaraju-gorle" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-                <a href="https://github.com/jayaraju-gorle" target="_blank" rel="noopener noreferrer">🐱 GitHub</a>
-                <a href="https://www.kaggle.com/gorlej" target="_blank" rel="noopener noreferrer">📊 Kaggle</a>
+                <a href="tel:+917174064974">📞 Phone</a>
+                <a href="https://www.linkedin.com/in/jayaraju-gorle" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+                <a href="https://github.com/jayaraju-gorle" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
             </p>
         </section>
     </div>
