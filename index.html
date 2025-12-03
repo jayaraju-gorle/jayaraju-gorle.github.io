@@ -1,234 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayaraju Gorle - Product Manager</title>
-    <!-- Google Analytics remains the same -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ3CXMBDTG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date());
-        gtag('config', 'G-KJ3CXMBDTG');
-    </script>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jayaraju Gorle — Product Manager</title>
+  <meta name="description" content="Jayaraju Gorle — Product Manager. Apollo 24|7 | IIM Calcutta | IIT KGP. Download profile as PDF.">
+  <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+  <style>
+    :root{--bg:#f4f6f8;--card:#fff;--muted:#667085;--accent:#2b90ff;--accent-2:#1ea3d8;--radius:12px}
+    *{box-sizing:border-box}
+    body{font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#0f1724;margin:0}
+    .hero{background:linear-gradient(135deg,#214e78 0%,#2b90ff 100%);padding:48px 16px 56px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;box-shadow:0 6px 18px rgba(33,78,120,0.15)}
+    .wrap{max-width:1000px;margin:0 auto}
+    .hero-inner{display:flex;align-items:center;gap:20px;justify-content:center;flex-direction:column;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:50%;border:4px solid #ff6b6b;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+    h1{color:#fff;margin:12px 0 6px;font-size:28px}
+    .subtitle{color:rgba(255,255,255,0.9);margin:0;font-weight:500}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .controls{margin-top:14px;display:flex;gap:10px;align-items:center;justify-content:center}
+    .btn{background:#fff;color:#0b1b2b;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:0 6px 12px rgba(11,27,43,0.08)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff}
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            background-color: var(--light-gray);
-            color: var(--text-color);
-            font-size: 16px;
-        }
+    main{max-width:1000px;margin:-48px auto 80px;padding:0 16px}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(11,27,43,0.04);border:1px solid rgba(15,23,36,0.03)}
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .section-title{font-size:18px;margin-bottom:12px;font-weight:700}
+    p{color:var(--muted);line-height:1.6}
+    ul{color:var(--muted);line-height:1.6}
 
-        /* Enhanced Header */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#f1fbff;color:#036; padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
 
-        header .container {
-            text-align: center;
-        }
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(43,144,255,0.03),rgba(30,163,216,0.02));border:1px solid rgba(43,144,255,0.08)}
+    .project h4{margin:0 0 6px}
+    .project a{color:var(--accent);text-decoration:none;font-weight:700}
+    .contact-links{display:flex;flex-direction:column;gap:8px}
+    .contact-links a{display:inline-block;padding:8px 10px;border-radius:8px;background:#fff;border:1px solid rgba(11,27,43,0.04);text-decoration:none;color:#0b1b2b}
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
+    /* Responsive */
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.hero{padding:36px 12px}.main{padding:0 12px}}
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Profile picture added */
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent-color);
-            margin: 0 auto 0.75rem auto;
-            display: block;
-        }
-
-        /* Improved Section Styling */
-        .section {
-            background: white;
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-            transition: var(--transition);
-        }
-
-        .section:hover { transform: translateY(-3px); }
-
-        .section h2 { margin-bottom: 0.75rem; }
-
-        .experience-item { margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--light-gray); }
-
-        .skills { display: flex; flex-wrap: wrap; gap: 12px; margin: 1rem 0; }
-
-        .skill { background: var(--secondary-color); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; }
-
-        /* Projects */
-        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-
-        .project-card { background: white; border-radius: 10px; padding: 1rem; border: 1px solid rgba(0,0,0,0.06); }
-
-        .project-card h3 { color: var(--primary-color); margin-bottom: 0.5rem; }
-
-        .project-link { color: var(--primary-color); text-decoration: none; font-weight: 600; }
-
-        .project-link:hover { color: var(--accent-color); }
-
-        .project-card p { color: #666; }
-
-        .contact a { display: inline-block; margin: 0.25rem 0.5rem 0.25rem 0; padding: 0.4rem 0.7rem; background: white; color: var(--primary-color); border-radius: 6px; text-decoration: none; border: 1px solid rgba(0,0,0,0.05); }
-
-        .contact a:hover { background: var(--secondary-color); color: white; }
-
-        @media screen and (max-width: 768px) {
-            body { font-size: 15px; }
-            .container { width: 95%; padding: 15px; }
-            header h1 { font-size: 2rem; }
-        }
-    </style>
+    /* Print / PDF adjustments: hide interactive controls */
+    .no-print{display:inline-flex}
+    @media print{.no-print{display:none}.hero{box-shadow:none}.card{box-shadow:none;border:none}}
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <!-- profile image pulled from GitHub account -->
-            <img class="profile-pic" src="https://github.com/jayaraju-gorle.png" alt="Jayaraju Gorle">
-            <h1>Jayaraju Gorle</h1>
-            <p>Product Manager @ Apollo 24|7 | IIM Calcutta | IIT KGP</p>
-        </div>
-    </header>
-
-    <div class="container">
-        <section class="section">
-            <h2>About Me</h2>
-            <p>
-                With over 12 years of industry experience + 2 yrs full time MBA from IIMC, I specialize in building digital products and scalable software systems that solve real-world problems and deliver exceptional value. My career spans diverse industries, including healthcare, affiliate marketing, and travel, where I've contributed to impactful product solutions that drive business growth and improve user experiences.
-            </p>
-
-            <p>
-                I hold an MBA from IIM Calcutta and a B.Tech (Hons) in Electronics & Communications from IIT Kharagpur, which provide a strong foundation for my expertise in product development, system design, and data-driven decision-making.
-            </p>
-
-            <p>Some of my key accomplishments include:</p>
-            <ul>
-                <li>Developing Travel Buddhist, a B2B SaaS platform for SMEs in the travel industry.</li>
-                <li>Building robust QA processes and implementing agile methodologies to streamline product development.</li>
-                <li>Designing AI-driven conversational systems for Future Group India to improve customer interactions.</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Professional Experience</h2>
-            <div class="experience-item">
-                <h3>Senior Product Manager</h3>
-                <div class="experience-date">Apollo 24|7 | April 2021 - Present</div>
-                <p>Leading product initiatives in the healthcare technology space.</p>
-            </div>
-
-            <div class="experience-item">
-                <h3>Head of Product Development</h3>
-                <div class="experience-date">mPhase Technologies | August 2019 - December 2020</div>
-                <ul>
-                    <li>Led product development for Travel Buddha - a B2B SaaS solution for SMEs in travel industry</li>
-                    <li>Managed a team of 15 developers and 3 SDETs, coordinating with designers</li>
-                    <li>Built QA processes and implemented agile methodologies</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h3>Product Manager</h3>
-                <div class="experience-date">CouponDunia | April 2015 - February 2018</div>
-                <ul>
-                    <li>Introduced cashback features and customer loyalty schemes</li>
-                    <li>Implemented affiliate conversion tracking for partner stores</li>
-                    <li>Achieved 33% improvement in daily signups through referral schemes</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Skills</h2>
-            <div class="skills">
-                <span class="skill">Product Strategy</span>
-                <span class="skill">Roadmapping</span>
-                <span class="skill">Data Analysis</span>
-                <span class="skill">B2B</span>
-                <span class="skill">SaaS</span>
-                <span class="skill">Web App</span>
-                <span class="skill">Chatbots</span>
-                <span class="skill">SEO</span>
-                <span class="skill">Tech trends</span>
-                <span class="skill">Market Analysis</span>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>GitHub Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3><a href="https://doctors-availability-checker-968458253320.us-west1.run.app" class="project-link" target="_blank" rel="noopener noreferrer">Doctors Availability Checker</a></h3>
-                    <p>Realtime doctor availability checker — quick appointment availability lookup for clinics and hospitals.</p>
-                </div>
-
-                <div class="project-card">
-                    <h3><a href="https://www.datatoolkitforsheets.com/" class="project-link" target="_blank" rel="noopener noreferrer">DataToolkitForSheets</a></h3>
-                    <p>DataToolkitForSheets: a set of tools and add-ons to process and analyze spreadsheet data quickly.</p>
-                </div>
-
-                <div class="project-card">
-                    <h3><a href="https://jayaraju-gorle.github.io/ai-calculator/" class="project-link" target="_blank" rel="noopener noreferrer">Simple AI Powered Calculator</a></h3>
-                    <p>AI-powered calculator with natural language input and advanced functions.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="section contact">
-            <h2>Contact Me</h2>
-            <p>
-                <a href="mailto:gorlej2015@email.iimcal.ac.in">📧 Email</a>
-                <a href="tel:+917174064974">📞 Phone</a>
-                <a href="https://www.linkedin.com/in/jayaraju-gorle" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
-                <a href="https://github.com/jayaraju-gorle" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-            </p>
-        </section>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <img class="avatar" src="https://github.com/jayaraju-gorle.png" alt="Jayaraju Gorle">
+      <h1>Jayaraju Gorle</h1>
+      <p class="subtitle">Product Manager @ Apollo 24|7 | IIM Calcutta | IIT KGP</p>
+      <div class="controls">
+        <button id="downloadPdf" class="btn primary no-print" title="Download profile as PDF">Download Profile (PDF)</button>
+        <a class="btn" href="mailto:gorlej2015@email.iimcal.ac.in" title="Email">Email</a>
+        <a class="btn ghost" href="https://github.com/jayaraju-gorle" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
     </div>
+  </header>
+
+  <main id="profile-content">
+    <div class="grid wrap">
+      <div>
+        <section class="card">
+          <div class="section-title">About Me</div>
+          <p>With over 12 years of industry experience + 2 yrs full time MBA from IIM Calcutta, I specialize in building digital products and scalable software systems that solve real-world problems and deliver exceptional value. My career spans healthcare, affiliate marketing and travel — building products that scale.</p>
+          <p>I hold an MBA from IIM Calcutta and a B.Tech (Hons) in Electronics & Communications from IIT Kharagpur.</p>
+          <ul>
+            <li>Developed Travel Buddha — a B2B SaaS platform for SMEs in travel.</li>
+            <li>Built QA processes and implemented agile methodologies across teams.</li>
+            <li>Designed AI-driven conversational systems to improve customer interactions.</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:16px">
+          <div class="section-title">Professional Experience</div>
+          <div>
+            <strong>Senior Product Manager</strong><br>
+            <small class="muted">Apollo 24|7 | April 2021 - Present</small>
+            <p style="margin-top:8px">Leading product initiatives in the healthcare technology space.</p>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong>Head of Product Development</strong><br>
+            <small class="muted">mPhase Technologies | August 2019 - December 2020</small>
+            <ul>
+              <li>Led product development for Travel Buddha - a B2B SaaS solution for SMEs in travel industry</li>
+              <li>Managed a team of 15 developers and 3 SDETs, coordinating with designers</li>
+              <li>Built QA processes and implemented agile methodologies</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong>Product Manager</strong><br>
+            <small class="muted">CouponDunia | April 2015 - February 2018</small>
+            <ul>
+              <li>Introduced cashback features and customer loyalty schemes</li>
+              <li>Implemented affiliate conversion tracking for partner stores</li>
+              <li>Achieved 33% improvement in daily signups through referral schemes</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:16px">
+          <div class="section-title">Skills</div>
+          <div class="skills">
+            <span class="chip">Product Strategy</span>
+            <span class="chip">Roadmapping</span>
+            <span class="chip">Data Analysis</span>
+            <span class="chip">B2B</span>
+            <span class="chip">SaaS</span>
+            <span class="chip">Web App</span>
+            <span class="chip">Chatbots</span>
+            <span class="chip">SEO</span>
+            <span class="chip">Market Analysis</span>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:16px">
+          <div class="section-title">GitHub Projects</div>
+          <div class="projects">
+            <div class="project">
+              <h4>Doctors Availability Checker</h4>
+              <p style="margin:6px 0 8px;color:var(--muted)">Realtime doctor availability checker &mdash; quick appointment availability lookup.</p>
+              <a href="https://doctors-availability-checker-968458253320.us-west1.run.app" target="_blank" rel="noopener noreferrer">Open project</a>
+            </div>
+
+            <div class="project">
+              <h4>DataToolkitForSheets</h4>
+              <p style="margin:6px 0 8px;color:var(--muted)">Tools and add-ons to process and analyze spreadsheet data quickly.</p>
+              <a href="https://www.datatoolkitforsheets.com/" target="_blank" rel="noopener noreferrer">Open project</a>
+            </div>
+
+            <div class="project">
+              <h4>Simple AI Powered Calculator</h4>
+              <p style="margin:6px 0 8px;color:var(--muted)">AI-powered calculator with natural language input and advanced functions.</p>
+              <a href="https://jayaraju-gorle.github.io/ai-calculator/" target="_blank" rel="noopener noreferrer">Open project</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div class="section-title">Contact</div>
+          <div class="contact-links">
+            <a href="mailto:gorlej2015@email.iimcal.ac.in">📧 gorlej2015@email.iimcal.ac.in</a>
+            <a href="tel:+917174064974">📞 +91 7174064974</a>
+            <a href="https://www.linkedin.com/in/jayaraju-gorle" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/jayaraju-gorle" target="_blank">🐙 GitHub</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-title">Download</div>
+          <p style="margin:0 0 10px;color:var(--muted)">Download a PDF copy of this profile for sharing or printing.</p>
+          <button id="downloadPdfAside" class="btn primary no-print">Download PDF</button>
+        </div>
+
+        <div class="card" style="margin-top:16px;text-align:center">
+          <div class="section-title">Quick Links</div>
+          <a class="btn" href="https://doctors-availability-checker-968458253320.us-west1.run.app" target="_blank">Doctors Checker</a>
+          <a class="btn" style="margin-left:8px" href="https://www.datatoolkitforsheets.com/" target="_blank">DataToolkitForSheets</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- html2pdf library for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script>
+    function downloadProfilePDF(){
+      const el = document.getElementById('profile-content');
+      // Hide interactive elements during render
+      const buttons = el.querySelectorAll('.no-print');
+      buttons.forEach(b=>b.style.display='none');
+
+      const opt = {
+        margin: 0.4,
+        filename: 'Jayaraju_Gorle_Profile.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(el).save().then(()=>{
+        // restore buttons
+        buttons.forEach(b=>b.style.display='inline-flex');
+      }).catch(err=>{
+        console.error(err);
+        buttons.forEach(b=>b.style.display='inline-flex');
+        alert('PDF generation failed. Please try again or use print-to-PDF from your browser.');
+      });
+    }
+
+    document.getElementById('downloadPdf').addEventListener('click', downloadProfilePDF);
+    document.getElementById('downloadPdfAside').addEventListener('click', downloadProfilePDF);
+  </script>
 </body>
 </html>
