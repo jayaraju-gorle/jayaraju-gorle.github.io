@@ -40,6 +40,10 @@
     .contact-links{display:flex;flex-direction:column;gap:8px}
     .contact-links a{display:inline-block;padding:8px 10px;border-radius:8px;background:#fff;border:1px solid rgba(11,27,43,0.04);text-decoration:none;color:#0b1b2b}
 
+    /* Quick links fixes */
+    .quick-links{padding:12px 16px;text-align:left}
+    .quick-links .btn{display:block;width:100%;margin:10px 0;padding:10px 12px;border-radius:8px;box-shadow:0 6px 12px rgba(11,27,43,0.05);text-align:left}
+
     /* Responsive */
     @media (max-width:900px){.grid{grid-template-columns:1fr}.hero{padding:36px 12px}.main{padding:0 12px}}
 
@@ -51,7 +55,7 @@
 <body>
   <header class="hero">
     <div class="wrap hero-inner">
-      <img class="avatar" src="https://github.com/jayaraju-gorle.png" alt="Jayaraju Gorle">
+      <img class="avatar" src="assets/profile.jpg" alt="Jayaraju Gorle">
       <h1>Jayaraju Gorle</h1>
       <p class="subtitle">Product Manager @ Apollo 24|7 | IIM Calcutta | IIT KGP</p>
       <div class="controls">
@@ -161,10 +165,10 @@
           <button id="downloadPdfAside" class="btn primary no-print">Download PDF</button>
         </div>
 
-        <div class="card" style="margin-top:16px;text-align:center">
+        <div class="card quick-links" style="margin-top:16px;text-align:center">
           <div class="section-title">Quick Links</div>
           <a class="btn" href="https://doctors-availability-checker-968458253320.us-west1.run.app" target="_blank">Doctors Checker</a>
-          <a class="btn" style="margin-left:8px" href="https://www.datatoolkitforsheets.com/" target="_blank">DataToolkitForSheets</a>
+          <a class="btn" href="https://www.datatoolkitforsheets.com/" target="_blank">DataToolkitForSheets</a>
         </div>
       </aside>
     </div>
