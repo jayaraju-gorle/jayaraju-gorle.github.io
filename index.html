@@ -252,8 +252,7 @@
       <h1>Jayaraju Gorle</h1>
       <p class="subtitle">Product Manager @ Apollo 24|7 | IIM Calcutta | IIT KGP</p>
       <div class="controls">
-        <button id="downloadPdf" class="btn primary no-print" title="Download profile as PDF">Download Profile
-          (PDF)</button>
+        <button id="downloadPdf" class="btn primary no-print" title="Download resume">Download Resume</button>
         <a class="btn" href="mailto:gorlej2015@email.iimcal.ac.in" title="Email">Email</a>
         <a class="btn ghost" href="https://github.com/jayaraju-gorle" target="_blank"
           rel="noopener noreferrer">GitHub</a>
@@ -263,6 +262,8 @@
 
   <main id="profile-content">
     <div class="grid wrap">
+      <!-- ... (content remains same) ... -->
+      <!-- Existing content is preserved, I am just appending the modal at the end of main or body, but since I am editing index.html I can add it before script tags -->
       <div>
         <section class="card">
           <div class="section-title">About Me</div>
@@ -411,35 +412,305 @@
     </div>
   </main>
 
-  <!-- html2pdf library for client-side PDF generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-  <script>
-    function downloadProfilePDF() {
-      const el = document.getElementById('profile-content');
-      // Hide interactive elements during render
-      const buttons = el.querySelectorAll('.no-print');
-      buttons.forEach(b => b.style.display = 'none');
+  <!-- Password Modal -->
+  <div id="passwordModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h3>Enter Password</h3>
+      <p>This document is password protected.</p>
+      <input type="password" id="passwordInput" placeholder="Enter password" class="modal-input">
+      <div id="modalError" style="color: red; font-size: 12px; margin-bottom: 10px; display: none;">Incorrect password
+      </div>
+      <div class="modal-actions">
+        <button id="btnCancel" class="btn ghost" style="color: #333; border: 1px solid #ddd;">Cancel</button>
+        <button id="btnSubmit" class="btn primary">Download</button>
+      </div>
+    </div>
+  </div>
 
-      const opt = {
-        margin: 0.4,
-        filename: 'Jayaraju_Gorle_Profile.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
-
-      html2pdf().set(opt).from(el).save().then(() => {
-        // restore buttons
-        buttons.forEach(b => b.style.display = 'inline-flex');
-      }).catch(err => {
-        console.error(err);
-        buttons.forEach(b => b.style.display = 'inline-flex');
-        alert('PDF generation failed. Please try again or use print-to-PDF from your browser.');
-      });
+  <style>
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
 
-    document.getElementById('downloadPdf').addEventListener('click', downloadProfilePDF);
-    document.getElementById('downloadPdfAside').addEventListener('click', downloadProfilePDF);
+    .modal-content {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  </style>
+
+  <!-- html2pdf library for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <!-- Crypto-JS for encryption/decryption -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("PDF Script Initialized");
+
+      // Encrypted Phone Number (Password: 07EC1014)
+      const ENCRYPTED_PHONE = "U2FsdGVkX1/3/pReusHtxGf91TEytTuHT78oRAvFSbU=";
+
+      // Modal Elements
+      const modal = document.getElementById('passwordModal');
+      const passInput = document.getElementById('passwordInput');
+      const btnCancel = document.getElementById('btnCancel');
+      const btnSubmit = document.getElementById('btnSubmit');
+      const errorMsg = document.getElementById('modalError');
+
+      // --- Modal Logic ---
+      function showModal() {
+        modal.style.display = 'flex';
+        passInput.value = '';
+        errorMsg.style.display = 'none';
+        passInput.focus();
+      }
+
+      function hideModal() {
+        modal.style.display = 'none';
+      }
+
+      // --- PDF Generation Logic ---
+      async function processPDF() {
+        const password = passInput.value;
+        let decryptedPhone = "";
+
+        try {
+          // 1. Decrypt
+          const bytes = CryptoJS.AES.decrypt(ENCRYPTED_PHONE, password);
+          decryptedPhone = bytes.toString(CryptoJS.enc.Utf8);
+
+          if (!decryptedPhone.startsWith("+91")) {
+            throw new Error("Decryption failed");
+          }
+        } catch (e) {
+          console.error("Decryption error:", e);
+          errorMsg.style.display = 'block'; // Show error in modal
+          return;
+        }
+
+        // Success! Hide modal and generate PDF
+        hideModal();
+        console.log("Password correct, generating PDF...");
+
+        // 1. ISOLATION STRATEGY: Hide main content to ensure clean capture
+        const hero = document.querySelector('.hero');
+        const main = document.getElementById('profile-content');
+
+        if (hero) hero.style.display = 'none';
+        if (main) main.style.display = 'none';
+        const originalBg = document.body.style.background;
+        document.body.style.background = 'white'; // Ensure white background
+
+        // 2. Create Resume Template (Standard Flow)
+        const resumeContainer = document.createElement('div');
+        resumeContainer.id = 'resume-pdf-container';
+        // FIX: Use box-sizing and safer width to prevent trimming
+        resumeContainer.style.cssText = `
+            width: 700px; 
+            margin: 0 auto;
+            background: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            color: #333; 
+            line-height: 1.4; 
+            padding: 30px;
+            box-sizing: border-box;
+          `;
+
+        // Helper for sections
+        const createSection = (title, contentHTML) => `
+            <div style="margin-bottom: 20px;">
+              <h3 style="text-transform: uppercase; border-bottom: 2px solid #333; font-size: 14px; margin: 0 0 10px 0; padding-bottom: 4px;">${title}</h3>
+              ${contentHTML}
+            </div>
+          `;
+
+        // Helper for experience items
+        const createExp = (role, company, date, bullets) => `
+            <div style="margin-bottom: 12px; page-break-inside: avoid; break-inside: avoid;">
+              <div style="overflow: hidden;">
+                <div style="float: left; font-weight: bold; font-size: 14px;">${role}</div>
+                <div style="float: right; font-style: italic; font-size: 12px;">${date}</div>
+              </div>
+              <div style="font-style: italic; font-size: 13px; margin-bottom: 4px;">${company}</div>
+              <ul style="margin: 0; padding-left: 18px; font-size: 12px; color: #444;">
+                ${bullets.map(b => `<li>${b}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+
+        // Helper for education
+        const createEdu = (degree, school, date) => `
+            <div style="margin-bottom: 8px;">
+              <div style="overflow: hidden; font-size: 13px;">
+                <span style="font-weight: bold;">${school}</span>
+                <span style="float: right; font-style: italic; font-size: 12px;">${date || ''}</span>
+              </div>
+              <div style="font-size: 12px;">${degree}</div>
+            </div>
+          `;
+
+        // Construct Content
+        const htmlContent = `
+            <!-- Header -->
+            <div style="text-align: center; margin-bottom: 25px;">
+              <h1 style="margin: 0 0 6px 0; font-size: 24px;">Jayaraju Gorle</h1>
+              <div style="font-size: 12px;">
+                <a href="mailto:gorlej2015@email.iimcal.ac.in" style="color: #333; text-decoration: none;">gorlej2015@email.iimcal.ac.in</a> • 
+                <span>${decryptedPhone}</span> • 
+                <span>Hyderabad, Telangana, India</span> • 
+                <a href="https://www.linkedin.com/in/jayaraju-gorle" style="color: #333; text-decoration: none;">linkedin.com/in/jayaraju-gorle</a>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div style="margin-bottom: 20px;">
+              <h3 style="text-transform: uppercase; border-bottom: 2px solid #333; font-size: 14px; margin: 0 0 8px 0; padding-bottom: 4px;">Summary</h3>
+              <p style="font-size: 12px; margin: 0;">
+                With over 12 years of industry experience, I bring deep expertise in artificial intelligence, proven leadership in product management, and a track record of driving digital transformation, innovation, cost efficiency, and strategic growth initiatives.
+              </p>
+            </div>
+
+            <!-- Education -->
+            ${createSection('Education', `
+              ${createEdu('PGDM (MBA)', 'Indian Institute of Management Calcutta', '2013 - 2015')}
+              ${createEdu('B.Tech (Hons) in E&ECE', 'Indian Institute of Technology, Kharagpur', '2007 - 2011')}
+            `)}
+
+            <!-- AI Projects -->
+            ${createSection('AI Prototyping & Development', `
+               ${createExp('Creator', 'Data Toolkit For Sheets', 'Feb 2025 - Present', [
+          'Developed a cricket data API by integrating the Perplexity API, utilizing data from a leading cricket website.',
+          'Created a data-focused chatbot leveraging Gemini API, streamlining data interactions and improving user experience.',
+          'Utilized tools such as cursor for development, GitHub for version control, Cloud Run for API hosting, Firebase for front-end hosting, and Perplexity/Gemini for AI APIs.',
+          'Ensuring efficient and robust product development.'
+        ])}
+            `)}
+
+            <!-- Experience -->
+            ${createSection('Experience', `
+              ${createExp('Product Lead', 'Apollo 24|7', 'Apr 2021 - Present', [
+          'Spearheaded digital transformation at India’s largest omnichannel digital healthcare platform, modernizing core products and backend systems.',
+          'Built and scaled the consult bot across WhatsApp, recovering 50%+ drop-offs and driving 5x growth in doctor bookings while optimizing conversation flows and LLM costs.',
+          'Expanded channel reach with RCS fallback, WhatsApp business calling, and self-managed numbers, enabling seamless omnichannel engagement.',
+          'Partnered with insurers to launch India’s first post-hospitalization cashless medicine disbursal flow, alongside a self-serve corporate portal for partners and internal stakeholders.',
+          'Delivered upgraded platform in 9 months, improving stability (80% fewer bugs) and accelerating release cycles from 4 weeks → 5 days, while eliminating recurring licensing costs.',
+          'Achieved 40% SMS cost savings by decluping OTPs, consolidating notifications, and optimizing trigger thresholds across campaigns.',
+          'Migrated support platform from Zoho Desk to Freshdesk, cutting resolution time by 20% and strengthening omnichannel support delivery.',
+          'Automated support flows to handle 75% of incoming tickets during a 10x COVID surge, reducing order issue rates (Medicines 30% → 9%, Lab tests 30% → 13%, Consults 20% → 10%).'
+        ])}
+              ${createExp('Head of Product Development', 'mPhase Technologies Inc.', 'Aug 2019 - Dec 2020', [
+          'Led cross-functional teams (Product, Design, QA) of 15+ members to develop and launch Travel Buddha, a B2B SaaS platform for SMEs in the travel industry.',
+          'Shipped 6 products: mobile-optimized website, PWA, iOS app, chatbot, CMS, and client portal.',
+          'Rolled out MVP to 5 pilot travel agencies; set up B2B2C GTM strategy with sales to expand pilots into full rollouts.',
+          'Implemented Dialogflow chatbot with voice-enabled web interactions for core booking and support flows.',
+          'Introduced agile practices and structured sprints, cutting release cycles from 6 weeks → 2 weeks; built QA team from scratch and reduced defects by 40%.',
+          'Administered end-to-end tech stack (Azure + GCP, Graphhopper, OpenStreetMap, Apple Dev Platform) ensuring scalability and reliability for pilots.'
+        ])}
+              ${createExp('Product Manager', 'Future Group', 'Apr 2018 - Jul 2019', [
+          'Designed and implemented conversational flows for Membership FAQs, Registration, and Order Placement, improving chatbot understanding by 100%.',
+          'Customized flows for web, mobile app, Google Assistant, FB Messenger, and WhatsApp, enhancing user engagement and accessibility.',
+          'Led the shipment of the chatbot product across multiple channels, aligning with strategic goals and improving customer satisfaction.'
+        ])}
+              ${createExp('Product Manager', 'CouponDunia Media Pvt. Ltd. (a Times Internet Company)', 'Apr 2015 - Mar 2018', [
+          'Led the development and launch of a cashback website, achieving a 33% surge in signups through SEO optimization and referral schemes.',
+          'Implemented affiliate conversion tracking with 10+ ad-networks, covering 200+ stores, resulting in monthly commissions of ₹10 Mn+ and improved tracking accuracy.',
+          'Saved ₹0.22 Mn monthly by blocking self-referral frauds, increasing the efficiency of referral programs and reducing fraudulent activities by 80%.'
+        ])}
+               ${createExp('Software Engineer', 'Sourcebits Technologies', 'Jul 2011 - Jun 2013', [
+          'Developed various products as a full stack web developer using PHP, Javascript, Node.js, Angular, HTML, and CSS, enhancing product functionality and user experience.',
+          'Led the mobile web engineering center, delivering lagging projects on time, improving project completion rates by 30%.',
+          'Collaborated with cross-functional teams to support other departments, ensuring alignment with strategic goals and enhancing overall team productivity.'
+        ])}
+            `)}
+            
+            <!-- Skills -->
+            ${createSection('Skills', `
+               <div style="font-size: 12px;">
+                 <strong>Product:</strong> Product Strategy, Roadmapping, B2B SaaS, Agile <br>
+                 <strong>Tech:</strong> Artificial Intelligence (AI), Large Language Models (LLM), Web Development, SEO, Data Analysis
+               </div>
+            `)}
+          `;
+
+        resumeContainer.innerHTML = htmlContent;
+        document.body.appendChild(resumeContainer);
+
+        // Wait for rendering (increased to 2s to ensure visibility capture)
+        await new Promise(r => setTimeout(r, 2000));
+
+        // PDF Generation Options
+        const opt = {
+          margin: 0.4,
+          filename: 'Resume-Jayaraju-Gorle.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, logging: true, scrollY: 0 },
+          jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['css', 'legacy'] }
+        };
+
+        try {
+          await html2pdf().set(opt).from(resumeContainer).save();
+        } catch (err) {
+          console.error("PDF Gen Error:", err);
+          alert("An error occurred while generating the PDF.");
+        } finally {
+          // Cleanup & Restore
+          document.body.removeChild(resumeContainer);
+          if (hero) hero.style.display = '';
+          if (main) main.style.display = '';
+          document.body.style.background = originalBg;
+        }
+      }
+
+      // Event Listeners
+      if (btnCancel) btnCancel.addEventListener('click', hideModal);
+      if (btnSubmit) btnSubmit.addEventListener('click', processPDF);
+      if (passInput) passInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') processPDF();
+      });
+
+      const btn1 = document.getElementById('downloadPdf');
+      const btn2 = document.getElementById('downloadPdfAside');
+
+      // Wire download buttons to Modal
+      if (btn1) btn1.addEventListener('click', showModal);
+      else console.error("downloadPdf button not found");
+
+      if (btn2) btn2.addEventListener('click', showModal);
+      else console.error("downloadPdfAside button not found");
+
+    });
   </script>
 </body>
 
