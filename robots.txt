@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jayaraju-gorle.github.io/sitemap.xml
