@@ -451,7 +451,8 @@
 
         <div class="card" style="margin-top:16px">
           <div class="section-title">Download</div>
-          <p style="margin:0 0 10px;color:var(--muted)">Download a PDF copy of this profile for sharing or printing.</p>
+          <p style="margin:0 0 10px;color:var(--muted)">To download my full profile as PDF, please email me for the
+            password.</p>
           <button id="downloadPdfAside" class="btn primary no-print">Download PDF</button>
         </div>
 
@@ -597,8 +598,8 @@
             background: white;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #333; 
-            line-height: 1.4; 
-            padding: 30px;
+            line-height: 1.35; 
+            padding: 25px;
             box-sizing: border-box;
           `;
 
@@ -664,48 +665,52 @@
 
             <!-- AI Projects -->
             ${createSection('Hands on AI Projects', `
-               ${createExp('Creator', 'Data Toolkit For Sheets', 'Feb 2025 - Present', [
-          'Developed a cricket data API by integrating the Perplexity API, utilizing data from a leading cricket website.',
-          'Created a data-focused chatbot leveraging Gemini API, streamlining data interactions and improving user experience.',
-          'Utilized tools such as cursor for development, GitHub for version control, Cloud Run for API hosting, Firebase for front-end hosting, and Perplexity/Gemini for AI APIs.',
-          'Ensuring efficient and robust product development.'
+               ${createExp('', 'Doctors Availability Assistant', '', [
+          'AI-powered realtime doctor availability checker for quick appointment lookup.',
+          'Built using Python, Flask, and deployed on Google Cloud Run.'
+        ])}
+               ${createExp('', 'DataToolkitForSheets', '', [
+          'Built an API testing tool to help users with API data testing and validation.',
+          'Developed a cricket data API by integrating the Perplexity API.',
+          'Created a data-focused chatbot leveraging Gemini API for streamlined data interactions.'
+        ])}
+               ${createExp('', 'Simple AI Powered Calculator', '', [
+          'AI-powered calculator with natural language input and advanced mathematical functions.',
+          'Built with vanilla JavaScript and integrated with AI APIs for intelligent query parsing.'
         ])}
             `)}
 
             <!-- Experience -->
             ${createSection('Experience', `
               ${createExp('Product Lead', 'Apollo 24|7', 'Apr 2021 - Present', [
-          'Spearheaded digital transformation at India’s largest omnichannel digital healthcare platform, modernizing core products and backend systems.',
-          'Built and scaled the consult bot across WhatsApp, recovering 50%+ drop-offs and driving 5x growth in doctor bookings while optimizing conversation flows and LLM costs.',
-          'Expanded channel reach with RCS fallback, WhatsApp business calling, and self-managed numbers, enabling seamless omnichannel engagement.',
-          'Partnered with insurers to launch India’s first post-hospitalization cashless medicine disbursal flow, alongside a self-serve corporate portal for partners and internal stakeholders.',
-          'Delivered upgraded platform in 9 months, improving stability (80% fewer bugs) and accelerating release cycles from 4 weeks → 5 days, while eliminating recurring licensing costs.',
-          'Achieved 40% SMS cost savings by decluping OTPs, consolidating notifications, and optimizing trigger thresholds across campaigns.',
-          'Migrated support platform from Zoho Desk to Freshdesk, cutting resolution time by 20% and strengthening omnichannel support delivery.',
-          'Automated support flows to handle 75% of incoming tickets during a 10x COVID surge, reducing order issue rates (Medicines 30% → 9%, Lab tests 30% → 13%, Consults 20% → 10%).'
+          'Led digital transformation at India\'s largest omnichannel healthcare platform, modernizing core products.',
+          'Built consult bot on WhatsApp recovering 50%+ drop-offs, driving 5x growth in doctor bookings.',
+          'Expanded reach via RCS fallback, WhatsApp calling, and self-managed numbers for omnichannel engagement.',
+          'Partnered with insurers to launch India\'s first post-hospitalization cashless medicine disbursal flow.',
+          'Delivered upgraded platform in 9 months: 80% fewer bugs, release cycles from 4 weeks → 5 days.',
+          'Achieved 40% SMS cost savings by deduping OTPs and optimizing notifications across campaigns.',
+          'Migrated support platform from Zoho Desk to Freshdesk, cutting resolution time by 20%.',
+          'Automated support handling 75% of tickets during 10x COVID surge; reduced issue rates by 60%+.'
         ])}
               ${createExp('Head of Product Development', 'mPhase Technologies Inc.', 'Aug 2019 - Dec 2020', [
-          'Led cross-functional teams (Product, Design, QA) of 15+ members to develop and launch Travel Buddha, a B2B SaaS platform for SMEs in the travel industry.',
-          'Shipped 6 products: mobile-optimized website, PWA, iOS app, chatbot, CMS, and client portal.',
-          'Rolled out MVP to 5 pilot travel agencies; set up B2B2C GTM strategy with sales to expand pilots into full rollouts.',
-          'Implemented Dialogflow chatbot with voice-enabled web interactions for core booking and support flows.',
-          'Introduced agile practices and structured sprints, cutting release cycles from 6 weeks → 2 weeks; built QA team from scratch and reduced defects by 40%.',
-          'Administered end-to-end tech stack (Azure + GCP, Graphhopper, OpenStreetMap, Apple Dev Platform) ensuring scalability and reliability for pilots.'
+          'Led cross-functional teams (Product, Design, QA) of 15+ members to develop Travel Buddha, a B2B SaaS platform for travel SMEs.',
+          'Shipped 6 products: mobile-optimized website, PWA, iOS app, chatbot, CMS, and client portal to 5 pilot travel agencies.',
+          'Rolled out MVP with B2B2C GTM strategy; implemented Dialogflow chatbot with voice-enabled web interactions for bookings.',
+          'Introduced agile practices cutting release cycles from 6 weeks → 2 weeks; built QA team from scratch, reduced defects by 40%.',
+          'Administered end-to-end tech stack (Azure + GCP, Graphhopper, OpenStreetMap, Apple Dev Platform) ensuring scalability.'
         ])}
               ${createExp('Product Manager', 'Future Group', 'Apr 2018 - Jul 2019', [
-          'Designed and implemented conversational flows for Membership FAQs, Registration, and Order Placement, improving chatbot understanding by 100%.',
-          'Customized flows for web, mobile app, Google Assistant, FB Messenger, and WhatsApp, enhancing user engagement and accessibility.',
-          'Led the shipment of the chatbot product across multiple channels, aligning with strategic goals and improving customer satisfaction.'
+          'Designed conversational flows for Membership FAQs, Registration, and Order Placement, improving chatbot understanding by 100%.',
+          'Customized flows for web, mobile app, Google Assistant, FB Messenger, WhatsApp; led chatbot shipment across all channels.'
         ])}
-              ${createExp('Product Manager', 'CouponDunia Media Pvt. Ltd. (a Times Internet Company)', 'Apr 2015 - Mar 2018', [
-          'Led the development and launch of a cashback website, achieving a 33% surge in signups through SEO optimization and referral schemes.',
-          'Implemented affiliate conversion tracking with 10+ ad-networks, covering 200+ stores, resulting in monthly commissions of ₹10 Mn+ and improved tracking accuracy.',
-          'Saved ₹0.22 Mn monthly by blocking self-referral frauds, increasing the efficiency of referral programs and reducing fraudulent activities by 80%.'
+              ${createExp('Product Manager', 'CouponDunia Media Pvt. Ltd. (Times Internet)', 'Apr 2015 - Mar 2018', [
+          'Led development of cashback website, achieving 33% surge in signups through SEO optimization and referral schemes.',
+          'Implemented affiliate conversion tracking with 10+ ad-networks covering 200+ stores; ₹10 Mn+ monthly commissions.',
+          'Saved ₹0.22 Mn monthly by blocking self-referral frauds, reducing fraudulent activities by 80%.'
         ])}
                ${createExp('Software Engineer', 'Sourcebits Technologies', 'Jul 2011 - Jun 2013', [
-          'Developed various products as a full stack web developer using PHP, Javascript, Node.js, Angular, HTML, and CSS, enhancing product functionality and user experience.',
-          'Led the mobile web engineering center, delivering lagging projects on time, improving project completion rates by 30%.',
-          'Collaborated with cross-functional teams to support other departments, ensuring alignment with strategic goals and enhancing overall team productivity.'
+          'Full stack web developer using PHP, Javascript, Node.js, Angular, HTML, CSS; enhanced product functionality and UX.',
+          'Led mobile web engineering center, delivering lagging projects on time, improving project completion rates by 30%.'
         ])}
             `)}
             
@@ -726,7 +731,7 @@
 
         // PDF Generation Options
         const opt = {
-          margin: 0.4,
+          margin: 0.3,
           filename: 'Resume-Jayaraju-Gorle.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true, logging: true, scrollY: 0 },
